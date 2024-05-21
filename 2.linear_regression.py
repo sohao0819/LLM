@@ -14,9 +14,9 @@ class Solution:
 
 if __name__ == "__main__":
     # Test the class with the given inputs
-    X=[[0.3745401188473625, 0.9507143064099162, 0.7319939418114051]]
-    weights=[1.0, 2.0, 3.0]
-    ground_truth=[[0.59865848],[0.15601864],[0.15599452]]
+    X = [[0.3745401188473625, 0.9507143064099162, 0.7319939418114051]]
+    weights = [1.0, 2.0, 3.0]
+    ground_truth = [[0.59865848],[0.15601864],[0.15599452]]
 
     solution = Solution()
     model_prediction = solution.get_model_prediction(X, weights)
@@ -24,5 +24,5 @@ if __name__ == "__main__":
 
     error = solution.get_error(model_prediction, ground_truth)
     print(f"The error is: {error}")
-    
+
     
