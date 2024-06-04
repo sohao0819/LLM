@@ -6,7 +6,7 @@ class Solution:
         self.learning_rate = learning_rate 
     
     def get_derivative(self, model_prediction: NDArray[np.float64], ground_truth: NDArray[np.float64], N: int, X: NDArray[np.float64],desired_weight: int) -> float:
-        return - 2 * np.dot(ground_truth - model_prediction, X[:, desired_weight]) / N
+        return - 2 * np.dot(ground_truth - model_prediction, X[:, desired_weight]) / N #get the partial derivative of weight array 
     
     def get_model_prediction(self, X: NDArray[np.float64], weights: NDArray[np.float64])-> NDArray[np.float64]:
          return np.squeeze(np.matmul(X, weights))
@@ -24,10 +24,11 @@ class Solution:
         learning_rate = self.learning_rate 
 
         for _ in range(num_iterations):
+            # calcuate the current model prediction witht the current weight 
             model_prediction = self.get_model_prediction (X, weights)
-            for i in range (len(weights)): 
+            for i in range (len(weights)): # iterate through each weight 
                 derivate = self.get_derivative(model_prediction, Y, N, X, i) 
-                weights[i] = weights[i] - learning_rate * derivate 
+                weights[i] = weights[i] - learning_rate * derivate # update the weight by substructing the learning rate times the derivative 
     
         return np.round(weights,5)
 
